@@ -1,0 +1,154 @@
+{
+  "skills": [
+    {
+      "id": "1",
+      "src": "./img/product-chain-1.png",
+      "title": "Web 3 Engineering",
+      "description": "Experienced in the development of web-based blockchain ecosystems combining traditional software engineering aspects with modern web 3 practices"
+    },
+    {
+      "id": "2",
+      "src": "./img/tag-1.png",
+      "title": "Market Analytics",
+      "description": "In-depth insights on cryptocurrency market movements backed by data-driven analysis and real-time monitoring of market trends, trading volumes, and price fluctuations"
+    },
+    {
+      "id": "3",
+      "src": "./img/feather-pen-2.png",
+      "title": "Brand Growth & Development",
+      "description": "Strategic brand development and growth services to help businesses establish a strong presence in the web 3 space, including brand identity, marketing strategies, and community engagement"
+    },
+    {
+      "id": "4",
+      "src": "./img/feather-pen-1.png",
+      "title": "Artist and Music Management",
+      "description": "Comprehensive management services for artists and musicians in the web 3 ecosystem, including career development, marketing, and leveraging blockchain technology for fan engagement and monetization"
+    }
+  ],
+  "skills2": [
+    {
+      "id": "1",
+      "src": "./img/product-chain-1.png",
+      "title": "Sevice 1",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
+    },
+    {
+      "id": "2",
+      "src": "./img/tag-1.png",
+      "title": "Service 2",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
+    },
+    {
+      "id": "3",
+      "src": "./img/feather-pen-2.png",
+      "title": "Service 3 ",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
+    },
+    {
+      "id": "4",
+      "src": "./img/feather-pen-1.png",
+      "title": "Service 4",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
+    },
+    {
+      "id": "5",
+      "src": "./img/feather-pen-2.png",
+      "title": "Service 3 ",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
+    },
+    {
+      "id": "6",
+      "src": "./img/feather-pen-2.png",
+      "title": "Service 3 ",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
+    }
+  ],
+  "portfolio": [
+    {
+      "id": "1",
+      "src": "./img/placeholder-image.png",
+      "title": "WRHSE",
+      "description": "A dedicated web3 market platform for in-demand lifestyle products, including fashion accessories and local streetwear ",
+      "link": "View More"
+    },
+    {
+      "id": "2",
+      "src": "./img/placeholder-image-1.png",
+      "title": "Cradle",
+      "description": "A next-generation real estate platform built on the Solana blockchain, designed to bridge the gap between modern property management systems",
+      "link": "View More"
+    },
+    {
+      "id": "3",
+      "src": "./img/placeholder-image-2.png",
+      "title": "Breeder",
+      "description": "Specialized dog-breeding initiatives leveraging blockchain technology to create a transparent and secure ecosystem for breeders, buyers, and dog enthusiasts",
+      "link": "View More"
+    }
+  ],
+
+  "portfolio2": [
+    {
+      "id": "1",
+      "src": "./img/placeholder-image.png",
+      "title": "Project Name",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique",
+      "link": "View More"
+    },
+    {
+      "id": "2",
+      "src": "./img/placeholder-image-1.png",
+      "title": "Project Name",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique",
+      "link": "View More"
+    },
+    {
+      "id": "3",
+      "src": "./img/placeholder-image-2.png",
+      "title": "Project Name",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique",
+      "link": "View More"
+    },
+    {
+      "id": "4",
+      "src": "./img/placeholder-image-2.png",
+      "title": "Project Name",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique",
+      "link": "View More"
+    },
+    {
+      "id": "5",
+      "src": "./img/placeholder-image-2.png",
+      "title": "Project Name",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique",
+      "link": "View More"
+    }
+  ],
+
+  "testimonial": [
+    {
+      "id": "1",
+      "count": "5",
+      "src": "./img/avatar-image.png",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique",
+      "author_name": "Client Name",
+      "author_designation": "Company"
+    },
+    {
+      "id": "2",
+      "count": "5",
+      "src": "./img/avatar-image-1.png",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique",
+      "author_name": "Client Name",
+      "author_designation": "Company"
+    },
+    {
+      "id": "3",
+      "count": "5",
+      "src": "./img/avatar-image-2.png",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique",
+      "author_name": "Client Name",
+      "author_designation": "Company"
+    }
+  ]
+}
