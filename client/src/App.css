@@ -54,6 +54,7 @@ p {
   color: var(--white);
   background-color: rgb(11, 11, 11);
   font-weight: bold;
+  padding: 2px 12px; /* adjust this */
 }
 .btn-outline-primary:hover {
   color: var(--white);
