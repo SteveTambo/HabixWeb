@@ -4,11 +4,7 @@ export default function ContactMe() {
   return (
     <section id="Contact" className="contact--section">
       <div>
-        <p className="sub--title">Get In Touch</p>
-        <h2>Contact Us</h2>
-        <p className="text-lg">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. In, odit.
-        </p>
+        <h2>Fill in the details for an early Airdrop opportunity</h2>
       </div>
       <form className="contact--form--container">
         <div className="container">
@@ -43,7 +39,7 @@ export default function ContactMe() {
             />
           </label>
           <label htmlFor="phone-number" className="contact--label">
-            <span className="text-md">phone-number</span>
+            <span className="text-md">Solana Public Address</span>
             <input
               type="number"
               className="contact--input text-md"
@@ -54,7 +50,7 @@ export default function ContactMe() {
           </label>
         </div>
         <label htmlFor="choode-topic" className="contact--label">
-          <span className="text-md">Choose a topic</span>
+          <span className="text-md">How did you hear about us?</span>
           <select id="choose-topic" className="contact--input text-md">
             <option>Select One...</option>
             <option>Item 1</option>
@@ -63,7 +59,7 @@ export default function ContactMe() {
           </select>
         </label>
         <label htmlFor="message" className="contact--label">
-          <span className="text-md">Message</span>
+          <span className="text-md">Any other notes?</span>
           <textarea
             className="contact--input text-md"
             id="message"
@@ -73,7 +69,7 @@ export default function ContactMe() {
         </label>
 
         <div>
-          <button className="btn btn-primary contact--form--btn">Submit</button>
+          <button className="btn btn-outline-primary">Submit</button>
         </div>
       </form>
     </section>
