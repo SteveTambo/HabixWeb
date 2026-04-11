@@ -18,9 +18,9 @@ export default function HeroSection() {
             We are building the infrastructure for a smarter digital
             economy—where ownership is transparent, communities create value
             together, and access to opportunity is no longer limited by
-            traditional systems. By combining blockchain innovation with
-            real-world utility, we empower creators, users, and businesses to
-            connect, transact, and grow in a more open and trusted ecosystem
+            traditional systems. By combining Solana's blockchain innovation
+            with real-world utility, we empower creators, users, and businesses
+            to connect, transact, and grow in a more open and trusted ecosystem
           </p>
         </div>
         <button className="btn btn-outline-primary">Get In Touch</button>
