@@ -21,7 +21,6 @@ export default function HeroSection() {
             traditional systems. By combining blockchain innovation with
             real-world utility, we empower creators, users, and businesses to
             connect, transact, and grow in a more open and trusted ecosystem
-            <br /> Dolorum, quas. Amet soluta assumenda cum?
           </p>
         </div>
         <button className="btn btn-outline-primary">Get In Touch</button>

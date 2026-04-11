@@ -66,24 +66,24 @@
   "portfolio": [
     {
       "id": "1",
-      "src": "./img/placeholder-image.png",
+      "src": "./img/webimage1.png",
       "title": "WRHSE",
       "description": "A dedicated web3 market platform for in-demand lifestyle products, including fashion accessories and local streetwear ",
-      "link": "View More"
+      "link": "https://habixgroup.netlify.app"
     },
     {
       "id": "2",
-      "src": "./img/placeholder-image-1.png",
+      "src": "./img/webimage2.png",
       "title": "Cradle",
       "description": "A next-generation real estate platform built on the Solana blockchain, designed to bridge the gap between modern property management systems",
-      "link": "View More"
+      "link": "https://cradlefrontend.netlify.app"
     },
     {
       "id": "3",
-      "src": "./img/placeholder-image-2.png",
+      "src": "./img/webimage3.png",
       "title": "Breeder",
       "description": "Specialized dog-breeding initiatives leveraging blockchain technology to create a transparent and secure ecosystem for breeders, buyers, and dog enthusiasts",
-      "link": "View More"
+      "link": "https://cradlebreeder.netlify.app"
     }
   ],
 
