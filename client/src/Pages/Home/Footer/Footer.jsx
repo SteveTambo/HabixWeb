@@ -1,4 +1,4 @@
-import { Link } from "react-scroll";
+import { Link } from "react-router-dom";
 import React from "react";
 import "./footer.css";
 
@@ -18,7 +18,7 @@ function Footer() {
                 smooth={true}
                 offset={-70}
                 duration={500}
-                to="heroSection"
+                to="/"
                 className="text-md"
               >
                 Home
@@ -31,7 +31,7 @@ function Footer() {
                 smooth={true}
                 offset={-70}
                 duration={500}
-                to="MyPortfolio"
+                to="/portfolio"
                 className="text-md"
               >
                 Our Portfolio
@@ -44,7 +44,7 @@ function Footer() {
                 smooth={true}
                 offset={-70}
                 duration={500}
-                to="AboutMe"
+                to="/about"
                 className="text-md"
               >
                 About Us
@@ -57,23 +57,10 @@ function Footer() {
                 smooth={true}
                 offset={-70}
                 duration={500}
-                to="Contact"
+                to="contact"
                 className="text-md"
               >
                 Contact
-              </Link>
-            </li>
-            <li>
-              <Link
-                activeClass="navbar--active-content"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-                to="testimonial"
-                className="text-md"
-              >
-                Testimonials
               </Link>
             </li>
           </ul>
@@ -103,7 +90,7 @@ function Footer() {
             </li>
             <li>
               <a
-                href="https://www.instagram.com/"
+                href="https://www.instagram.com/habixgroup"
                 className="navbar--content"
                 target="_blank"
                 rel="noreferrer"
@@ -147,7 +134,7 @@ function Footer() {
             </li>
             <li>
               <a
-                href="https://www.linkedin.com/"
+                href="https://www.linkedin.com/company/habixtech"
                 className="navbar--content"
                 target="_blank"
                 rel="noreferrer"

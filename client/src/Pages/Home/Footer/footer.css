@@ -1,7 +1,7 @@
 /* Footer Starts */
 .footer--container {
   display: flex;
-  padding: 95.667px 75.333px;
+  padding: 80.667px 75.333px;
   flex-direction: column;
   align-items: flex-start;
   background: var(--purple, #fc2b2b);
