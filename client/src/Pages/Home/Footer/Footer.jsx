@@ -134,7 +134,7 @@ function Footer() {
             </li>
             <li>
               <a
-                href="https://www.linkedin.com/company/habixtech"
+                href="https://www.linkedin.com/company/habixgroup"
                 className="navbar--content"
                 target="_blank"
                 rel="noreferrer"
