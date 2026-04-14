@@ -293,9 +293,6 @@ h2 {
 }
 
 @media only screen and (max-width: 1200px) {
-  .btn-outline-primary {
-    display: none;
-  }
   .hero--section {
     display: flex;
     flex-direction: column-reverse;
