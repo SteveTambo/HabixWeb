@@ -117,3 +117,55 @@
 .whitepaper-link:active {
   text-decoration: none;
 }
+/* ===============================
+   MOBILE NAV FIX
+=============================== */
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 24px;
+  }
+
+  /* stack navbar items vertically */
+  .navbar--items {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+
+    background: var(--purple, #5e40f4);
+
+    display: none;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 20px 0;
+
+    z-index: 998;
+  }
+
+  /* when menu opens */
+  .navbar--items.active {
+    display: flex;
+  }
+
+  .navbar--items ul {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* move wallet button INTO dropdown flow */
+  .wallet-connect-btn {
+    margin-top: 20px;
+  }
+}
+/* ===============================
+   HAMBURGER / CLOSE BUTTON FIX
+=============================== */
+
+.nav__hamburger {
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  z-index: 1001; /* higher than menu */
+}
