@@ -77,3 +77,66 @@
 .whitepaper-link:active {
   text-decoration: none;
 }
+/* ===============================
+   PORTFOLIO RESPONSIVE FIX
+=============================== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .portfolio--section {
+    padding: 90px 50px;
+    gap: 60px;
+  }
+
+  .portfolio--section--container {
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  .portfolio--section--card {
+    flex: 1 1 calc(50% - 32px);
+  }
+}
+/* Large phones */
+@media (max-width: 768px) {
+  .portfolio--section {
+    padding: 80px 30px;
+    align-items: center;
+  }
+
+  .portfolio--container-box {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .portfolio--section--container {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .portfolio--section--card {
+    width: 100%;
+  }
+}
+/* Small phones */
+@media (max-width: 480px) {
+  .portfolio--section {
+    padding: 60px 20px;
+    gap: 40px;
+  }
+
+  .portfolio--section--card--content {
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .portfolio--section--card {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.12);
+  }
+
+  .portfolio--link {
+    font-size: 14px;
+    gap: 10px;
+  }
+}
