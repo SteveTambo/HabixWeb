@@ -145,20 +145,7 @@ function Navbar() {
               Our Portfolio
             </Link>
           </li>
-          <li>
-            <Link
-              onClick={closeMenu}
-              activeClass="navbar--active-content"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-              to="/about"
-              className="navbar--content"
-            >
-              About Us
-            </Link>
-          </li>
+
           <li>
             <a
               href="/whitepaper.pdf"
@@ -173,11 +160,13 @@ function Navbar() {
       </div>
       <button
         onClick={connectWallet}
-        className="btn btn-outline-primary"
         style={{
           display: "flex",
           alignItems: "center",
           gap: "4px",
+          padding: "2px 12px",
+          color: "#fff",
+          backgroundColor: "black",
         }}
       >
         <img

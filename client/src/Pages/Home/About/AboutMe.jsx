@@ -9,10 +9,8 @@ export default function AboutMe() {
       <div className="hero--section--content--box about--section--box">
         <div className="hero--section--content">
           <p className="section--title">About Us</p>
-          <h1 className="skills-section--heading" style={{ fontSize: "54px" }}>
-            Who We Are
-          </h1>
-          <p className="hero--section-description" style={{ color: "black" }}>
+          <h1 className="skills-section--heading">Who We Are</h1>
+          <p className="hero--section-description">
             The future belongs to organizations built collaboratively,
             transparently, and sustainably—where governance is shared and value
             flows to everyone who contributes. This is the vision behind Habix.

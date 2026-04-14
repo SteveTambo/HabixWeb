@@ -37,19 +37,7 @@ function Footer() {
                 Our Portfolio
               </Link>
             </li>
-            <li>
-              <Link
-                activeClass="navbar--active-content"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-                to="/about"
-                className="text-md"
-              >
-                About Us
-              </Link>
-            </li>
+
             <li>
               <Link
                 activeClass="navbar--active-content"

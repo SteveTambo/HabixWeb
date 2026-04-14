@@ -4,7 +4,7 @@ export default function HeroSection() {
       <div className="hero--section--content--box">
         <div className="hero--section--content">
           <p className="section--title">Welcome to Habix</p>
-          <h1 className="hero--section--title" style={{ fontSize: "54px" }}>
+          <h1 className="hero--section--title">
             <span
               className="hero--section-title--color"
               style={{ color: "Black" }}
