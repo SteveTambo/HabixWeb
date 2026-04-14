@@ -60,3 +60,64 @@
   font-weight: bold;
   line-height: 28px;
 }
+
+/* Footer Responsive Fix */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .footer--container {
+    padding: 60px 40px;
+  }
+
+  .footer--items > ul {
+    gap: 24px;
+  }
+
+  .divider {
+    margin: 60px 0 30px;
+  }
+}
+
+/* Large phones */
+@media (max-width: 768px) {
+  .footer--link--container {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .footer--items > ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .footer--social--icon > ul {
+    justify-content: center;
+  }
+
+  .footer--content--container {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .divider {
+    margin: 40px 0 24px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .footer--container {
+    padding: 40px 20px;
+  }
+
+  .footer--content {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .footer--link--container img {
+    max-width: 120px;
+  }
+}

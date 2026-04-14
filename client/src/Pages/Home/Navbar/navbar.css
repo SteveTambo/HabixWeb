@@ -1,60 +1,87 @@
-.navbar img {
-  max-width: 150px; /* Adjust this value to your desired width */
-  height: auto;
-  margin-top: 10px;
-}
+/* ===============================
+   NAVBAR CONTAINER
+=============================== */
 
-/* Navbar Style Start */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 85.333px;
-  background: var(--purple, #5e40f4);
-  box-shadow: 0px 5.333px 80px 0 rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 15px 85.333px;
+
+  background: var(--purple, #5e40f4);
+  box-shadow: 0px 5.333px 80px rgba(0, 0, 0, 0.1);
+
+  z-index: 999; /* ensures navbar stays above content */
 }
+
+/* ===============================
+   LOGO
+=============================== */
+
 .navbar--logo {
   display: flex;
   align-items: center;
 }
 
 .navbar--logo img {
-  height: 50px;
-  width: auto;
+  max-width: 150px;
+  height: auto;
   object-fit: contain;
 }
+
+/* ===============================
+   NAV LINKS CONTAINER
+=============================== */
+
 .navbar--items > ul {
   list-style: none;
+
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 42.667px;
-  text-decoration: none;
+
+  margin: 0;
+  padding: 0;
 }
+
+/* ===============================
+   NAV LINKS
+=============================== */
+
 .navbar--items ul > li > a {
   text-decoration: none;
   font-weight: bold;
   color: #000000;
 }
-/* Navbar Content */
+
+/* ===============================
+   NAV TEXT STYLE
+=============================== */
+
 .navbar--content {
   font-size: 16px;
-  font-style: normal;
   font-weight: 400;
   line-height: 24px;
   cursor: pointer;
 }
+
 .navbar--active-content {
   color: white;
   font-weight: bold;
 }
-/* Navbar Styler Ends */
+
+/* ===============================
+   WHITEPAPER LINK
+=============================== */
+
 .whitepaper-link {
   text-decoration: none;
-  cursor: pointer;
 }
 
 .whitepaper-link:hover,

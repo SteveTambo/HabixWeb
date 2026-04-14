@@ -69,3 +69,57 @@ input[type="checkbox"] {
   transform: translatey(-0.075em);
 }
 /* Contact End */
+/* Responsive fix for smaller screens */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .contact--section {
+    padding: 120px 60px;
+  }
+
+  .contact--form--container {
+    width: 60%;
+  }
+}
+
+/* Large phones */
+@media (max-width: 768px) {
+  .contact--section {
+    padding: 100px 40px;
+  }
+
+  .contact--form--container {
+    width: 80%;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .contact--section {
+    padding: 80px 20px;
+    gap: 40px;
+  }
+
+  .contact--form--container {
+    width: 100%;
+    row-gap: 24px;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    row-gap: 24px;
+  }
+
+  .contact--input {
+    padding: 14px;
+  }
+
+  input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+  }
+}

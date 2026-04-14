@@ -83,3 +83,81 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+/* Responsive fix for Skills Section */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .skills--section {
+    padding: 120px 60px;
+    gap: 80px;
+  }
+
+  .skills--section--heading {
+    font-size: 48px;
+    line-height: 58px;
+  }
+
+  .skills--section--card {
+    flex: 0 0 calc((100% / 2) - 42.6px);
+  }
+}
+
+/* Large phones */
+@media (max-width: 768px) {
+  .skills--section {
+    padding: 100px 40px;
+    gap: 60px;
+  }
+
+  .skills--section--heading {
+    font-size: 40px;
+    line-height: 50px;
+  }
+
+  .skills--section--card {
+    flex: 0 0 80%;
+  }
+
+  .skills--section--title {
+    font-size: 26px;
+    line-height: 36px;
+  }
+
+  .skills--section--description {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .skills--section {
+    padding: 80px 20px;
+    gap: 40px;
+  }
+
+  .skills--section--heading {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .skills--section--container {
+    gap: 24px;
+  }
+
+  .skills--section--card {
+    flex: 0 0 100%;
+    padding: 24px;
+  }
+
+  .skills--section--title {
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  .skills--section--description {
+    font-size: 16px;
+    line-height: 26px;
+  }
+}

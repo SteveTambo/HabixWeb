@@ -9,6 +9,10 @@ body {
   -moz-osx-font-smoothing: "Inter", sans-serif;
   font-style: normal;
 }
+img {
+  max-width: 100%;
+  height: auto;
+}
 h1,
 h2,
 h3,
@@ -360,6 +364,92 @@ h2 {
   }
   .divider {
     margin: 20px;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .hero--section {
+    padding: 100px 40px;
+  }
+
+  .hero--section--title {
+    font-size: 36px;
+    line-height: 52px;
+  }
+
+  .hero--section-description {
+    font-size: 18px;
+    line-height: 30px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .hero--section {
+    padding: 80px 20px;
+  }
+
+  .testimonial--section {
+    padding: 80px 20px;
+  }
+
+  .hero--section--title {
+    font-size: 30px;
+    line-height: 44px;
+  }
+
+  .sections--heading {
+    text-align: center;
+  }
+
+  .testimonial--section--card {
+    padding: 20px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  h1 {
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  h2 {
+    font-size: 26px;
+    line-height: 36px;
+  }
+
+  h3 {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .hero--section-description {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .section--title {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .testimonial--section {
+    gap: 40px;
+  }
+
+  .testimonial--section--card--author--detail {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .navbar--items.active {
+    top: 60px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .btn {
+    padding: 12px 20px;
+    font-size: 14px;
   }
 }
 
