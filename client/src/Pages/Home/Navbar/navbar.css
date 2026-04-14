@@ -77,6 +77,34 @@
 }
 
 /* ===============================
+   WALLET CONNECT BUTTON
+=============================== */
+
+.wallet-connect-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  padding: 6px 14px;
+
+  color: #ffffff;
+  background-color: #000000;
+
+  border: 1px solid #ffffff;
+  border-radius: 6px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.wallet-connect-btn:hover {
+  background-color: #111111;
+  transform: translateY(-1px);
+}
+
+/* ===============================
    WHITEPAPER LINK
 =============================== */
 

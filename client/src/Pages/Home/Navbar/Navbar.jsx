@@ -158,18 +158,7 @@ function Navbar() {
           </li>
         </ul>
       </div>
-      <button
-        onClick={connectWallet}
-        className="btn btn-outline-primary"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "4px",
-          padding: "2px 12px",
-          color: "#fff",
-          backgroundColor: "black",
-        }}
-      >
+      <button onClick={connectWallet} className="wallet-connect-btn">
         <img
           src="/img/phantomlogo.png"
           alt="phantom"

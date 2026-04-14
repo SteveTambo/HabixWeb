@@ -8,6 +8,7 @@ body {
   -webkit-font-smoothing: "Inter", sans-serif;
   -moz-osx-font-smoothing: "Inter", sans-serif;
   font-style: normal;
+  padding-top: 90px;
 }
 img {
   max-width: 100%;
