@@ -23,7 +23,6 @@ export default function HeroSection() {
             to connect, transact, and grow in a more open and trusted ecosystem
           </p>
         </div>
-        <button className="btn btn-outline-primary">Get In Touch</button>
       </div>
       <div className="hero--section--img">
         <img src="./img/hbx1.jpeg" alt="Hero Section" />
