@@ -55,7 +55,7 @@ export default function ContactMe() {
       const response = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "airdrop-form", ...formData }),
+        body: encode({ "form-name": "airdrop-form-v2", ...formData }),
       });
 
       if (!response.ok) {
@@ -82,7 +82,7 @@ export default function ContactMe() {
       </div>
 
       {/* The hidden static form is required for Netlify to detect it at build time in SPAs */}
-      <form name="airdrop-form" data-netlify="true" hidden>
+      <form name="airdrop-form-v2" data-netlify="true" hidden>
         <input type="text" name="instagram" />
         <input type="text" name="tiktok" />
         <input type="email" name="email" />
@@ -93,188 +93,20 @@ export default function ContactMe() {
       </form>
 
       <form
-        name="airdrop-form"
-        method="POST"
-        onSubmit={handleSubmit}
-        className="contact--form--container"
+        name="airdrop-form-v2"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        hidden
       >
-        <input type="hidden" name="form-name" value="airdrop-form" />
+        <input type="hidden" name="form-name" value="airdrop-form-v2" />
 
-        <div className="container">
-          <label className="contact--label">
-            <span className="text-md">Instagram Username</span>
-            <input
-              type="text"
-              name="instagram"
-              value={formData.instagram}
-              onChange={handleChange}
-              placeholder="@yourhandle"
-              required
-              className="contact--input text-md"
-            />
-          </label>
-
-          <label className="contact--label">
-            <span className="text-md">TikTok Username</span>
-            <input
-              type="text"
-              name="tiktok"
-              value={formData.tiktok}
-              onChange={handleChange}
-              placeholder="@yourhandle"
-              required
-              className="contact--input text-md"
-            />
-          </label>
-
-          <label className="contact--label">
-            <span className="text-md">Email</span>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="you@example.com"
-              required
-              className="contact--input text-md"
-            />
-          </label>
-
-          <label className="contact--label">
-            <span className="text-md">Solana Public Address</span>
-            <input
-              type="text"
-              name="wallet-address"
-              value={formData["wallet-address"]}
-              onChange={handleChange}
-              placeholder="e.g. 7xKX..."
-              required
-              className="contact--input text-md"
-            />
-          </label>
-        </div>
-
-        <label className="contact--label">
-          <span className="text-md">Which suburb are you based in?</span>
-          <select
-            name="suburb"
-            value={formData.suburb}
-            onChange={handleChange}
-            required
-            className="contact--input text-md"
-          >
-            <option value="">Select One...</option>
-            <option>Westlands</option>
-            <option>Kilimani</option>
-            <option>Kileleshwa</option>
-            <option>Lavington</option>
-            <option>Parklands</option>
-            <option>Upper Hill</option>
-            <option>Karen</option>
-            <option>Lang'ata</option>
-            <option>South B</option>
-            <option>South C</option>
-            <option>Eastleigh</option>
-            <option>Embakasi</option>
-            <option>Donholm</option>
-            <option>Umoja</option>
-            <option>Buruburu</option>
-            <option>Komarock</option>
-            <option>Kayole</option>
-            <option>Ruaka</option>
-            <option>Runda</option>
-            <option>Muthaiga</option>
-            <option>Gigiri</option>
-            <option>Spring Valley</option>
-            <option>Riverside</option>
-            <option>Ngong Road</option>
-            <option>Dagoretti</option>
-            <option>Ngumo</option>
-            <option>Hurlingham</option>
-            <option>Madaraka</option>
-            <option>Mlolongo</option>
-            <option>Syokimau</option>
-            <option>Athi River</option>
-            <option>Kitengela</option>
-            <option>Roysambu</option>
-            <option>Kasarani</option>
-            <option>Zimmerman</option>
-            <option>Kahawa West</option>
-            <option>Kahawa Sukari</option>
-            <option>Garden Estate</option>
-            <option>Thome</option>
-            <option>Githurai</option>
-            <option>Mirema</option>
-            <option>Mountain View</option>
-            <option>Kangemi</option>
-            <option>Kinoo</option>
-            <option>Uthiru</option>
-            <option>Riruta</option>
-            <option>Jamhuri Estate</option>
-            <option>Kawangware</option>
-            <option>Other</option>
-          </select>
-        </label>
-
-        {/* Mailing list field */}
-        <div className="contact--label mailing--list--field">
-          <span className="text-md mailing--list--title">
-            Include in mailing list?{" "}
-            <span className="required--asterisk" aria-hidden="true">
-              *
-            </span>
-          </span>
-          <p className="mailing--list--description">
-            Stay updated on WRHSE drops, $HBX token news, and exclusive giveaway
-            announcements.
-          </p>
-          <div className="mailing--list--options">
-            <label className="radio--label">
-              <input
-                type="radio"
-                name="mailing-list"
-                value="Yes"
-                checked={formData["mailing-list"] === "Yes"}
-                onChange={handleChange}
-                className="radio--input"
-                required
-              />
-              <span className="radio--custom" aria-hidden="true" />
-              <span className="text-md">Yes, keep me in the loop</span>
-            </label>
-            <label className="radio--label">
-              <input
-                type="radio"
-                name="mailing-list"
-                value="No"
-                checked={formData["mailing-list"] === "No"}
-                onChange={handleChange}
-                className="radio--input"
-              />
-              <span className="radio--custom" aria-hidden="true" />
-              <span className="text-md">No thanks</span>
-            </label>
-          </div>
-        </div>
-
-        <label className="contact--label">
-          <span className="text-md">Any other notes?</span>
-          <textarea
-            name="message"
-            rows="6"
-            value={formData.message}
-            onChange={handleChange}
-            className="contact--input text-md"
-          />
-        </label>
-
-        <button
-          type="submit"
-          className="btn btn-outline-primary"
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? "Submitting..." : "Submit"}
-        </button>
+        <input type="text" name="instagram" />
+        <input type="text" name="tiktok" />
+        <input type="email" name="email" />
+        <input type="text" name="wallet-address" />
+        <input type="text" name="suburb" />
+        <input type="text" name="mailing-list" />
+        <textarea name="message"></textarea>
       </form>
 
       <ToastContainer position="top-right" autoClose={3000} />
