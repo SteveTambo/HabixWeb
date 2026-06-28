@@ -224,7 +224,7 @@ export default function ContactMe() {
             </span>
           </span>
           <p className="mailing--list--description">
-            Stay updated on WRHSE drops, $HBX token news, and exclusive giveaway
+            Stay updated on WRHSE drops, $HBX token news, and new music releases
             announcements.
           </p>
           <div className="mailing--list--options">
