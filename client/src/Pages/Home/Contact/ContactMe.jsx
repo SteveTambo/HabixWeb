@@ -55,7 +55,7 @@ export default function ContactMe() {
       const response = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "airdrop-form-v2", ...formData }),
+        body: encode({ "form-name": "airdrop-form", ...formData }),
       });
 
       if (!response.ok) {
@@ -82,7 +82,7 @@ export default function ContactMe() {
       </div>
 
       {/* The hidden static form is required for Netlify to detect it at build time in SPAs */}
-      <form name="airdrop-form-v2" data-netlify="true" hidden>
+      <form name="airdrop-form" data-netlify="true" hidden>
         <input type="text" name="instagram" />
         <input type="text" name="tiktok" />
         <input type="email" name="email" />
@@ -93,12 +93,12 @@ export default function ContactMe() {
       </form>
 
       <form
-        name="airdrop-form-v2"
+        name="airdrop-form"
         data-netlify="true"
         netlify-honeypot="bot-field"
         hidden
       >
-        <input type="hidden" name="form-name" value="airdrop-form-v2" />
+        <input type="hidden" name="form-name" value="airdrop-form" />
 
         <input type="text" name="instagram" />
         <input type="text" name="tiktok" />
