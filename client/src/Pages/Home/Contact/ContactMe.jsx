@@ -115,14 +115,13 @@ export default function ContactMe() {
           </label>
 
           <label className="contact--label">
-            <span className="text-md">TikTok Username</span>
+            <span className="text-md">TikTok Username (Stage 2?)</span>
             <input
               type="text"
               name="tiktok"
               value={formData.tiktok}
               onChange={handleChange}
               placeholder="@yourhandle"
-              required
               className="contact--input text-md"
             />
           </label>
