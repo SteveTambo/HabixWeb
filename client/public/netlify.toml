@@ -2,3 +2,13 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+  <form name="airdrop-form" data-netlify="true" hidden>
+  <input type="text" name="instagram" />
+  <input type="text" name="tiktok" />
+  <input type="email" name="email" />
+  <input type="text" name="wallet-address" />
+  <select name="suburb"></select>
+  <select name="mailing-list"></select>
+  <textarea name="message"></textarea>
+</form>
