@@ -157,6 +157,17 @@ function Navbar() {
             </a>
           </li>
 
+          <li>
+            <a
+              href="/giveaway.pdf"
+              download
+              onClick={closeMenu}
+              className="navbar--content whitepaper-link"
+            >
+              Giveaway Info
+            </a>
+          </li>
+
           <li className="dropdown">
             <span className="navbar--content dropdown-toggle">Roster ▾</span>
 
