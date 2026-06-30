@@ -102,7 +102,7 @@ export default function ContactMe() {
 
         <div className="container">
           <label className="contact--label">
-            <span className="text-md">Instagram Username (optional)</span>
+            <span className="text-md">Instagram (optional)</span>
             <input
               type="text"
               name="instagram"
@@ -114,7 +114,7 @@ export default function ContactMe() {
           </label>
 
           <label className="contact--label">
-            <span className="text-md">TikTok Username</span>
+            <span className="text-md">TikTok </span>
             <input
               type="text"
               name="tiktok"
