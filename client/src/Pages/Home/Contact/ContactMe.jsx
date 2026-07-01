@@ -4,8 +4,6 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const INITIAL_FORM = {
-  instagram: "",
-  tiktok: "",
   email: "",
   "wallet-address": "",
   suburb: "",
@@ -83,8 +81,6 @@ export default function ContactMe() {
 
       {/* The hidden static form is required for Netlify to detect it at build time in SPAs */}
       <form name="airdrop-form" data-netlify="true" hidden>
-        <input type="text" name="instagram" />
-        <input type="text" name="tiktok" />
         <input type="email" name="email" />
         <input type="text" name="wallet-address" />
         <select name="suburb" />
@@ -101,31 +97,6 @@ export default function ContactMe() {
         <input type="hidden" name="form-name" value="airdrop-form" />
 
         <div className="container">
-          <label className="contact--label">
-            <span className="text-md">Instagram (optional)</span>
-            <input
-              type="text"
-              name="instagram"
-              value={formData.instagram}
-              onChange={handleChange}
-              placeholder="@yourhandle"
-              className="contact--input text-md"
-            />
-          </label>
-
-          <label className="contact--label">
-            <span className="text-md">TikTok </span>
-            <input
-              type="text"
-              name="tiktok"
-              value={formData.tiktok}
-              onChange={handleChange}
-              placeholder="@yourhandle"
-              required
-              className="contact--input text-md"
-            />
-          </label>
-
           <label className="contact--label">
             <span className="text-md">Email</span>
             <input
