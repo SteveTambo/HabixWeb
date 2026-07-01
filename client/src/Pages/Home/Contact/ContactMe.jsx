@@ -74,8 +74,7 @@ export default function ContactMe() {
     <section id="Contact" className="contact--section">
       <div>
         <h2>
-          Done with Step One? Fill in the details for an early Airdrop
-          opportunity : WRHSE Giveaway
+          Fill in the details for an early Airdrop opportunity : WRHSE Giveaway
         </h2>
       </div>
 
