@@ -9,8 +9,6 @@ function Navbar() {
   const [walletAddress, setWalletAddress] = useState(null);
   const [hbxBalance, setHbxBalance] = useState(null);
 
-  const HBX_MINT_ADDRESS = "HUYpjVt3CLaLzU7vonS4mRCP3RQ312c6SigjdESHpaJP";
-
   const toggleNav = () => {
     setNavActive(!navActive);
   };
@@ -63,14 +61,13 @@ function Navbar() {
 
   const getHBXBalance = async (publicKey) => {
     try {
-      const connection = new Connection(
-        "https://mainnet.helius-rpc.com/?api-key=aa25d1c1-f1d3-4fc4-b7ee-09f655f395e3",
-      );
+      console.log(process.env.REACT_APP_SOLANA_RPC_URL);
+      const connection = new Connection(process.env.REACT_APP_SOLANA_RPC_URL);
 
       const accounts = await connection.getParsedTokenAccountsByOwner(
         publicKey,
         {
-          mint: new PublicKey(HBX_MINT_ADDRESS),
+          mint: new PublicKey(process.env.REACT_APP_HBX_MINT_ADDRESS),
         },
       );
 
