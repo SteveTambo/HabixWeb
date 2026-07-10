@@ -14,7 +14,7 @@ export default function MainPortfolio() {
       <div className="portfolio--container-box">
         <div className="portfolio--container">
           <p className="sub--title">Recent Projects</p>
-          <h2 className="section--heading">Our Portfolio</h2>
+          <h2 className="section--heading">Our Studio Portfolio</h2>
         </div>
       </div>
 

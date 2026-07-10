@@ -7,7 +7,7 @@ export default function MyPortfolio() {
       <div className="portfolio--container-box">
         <div className="portfolio--container">
           <p className="sub--title">Recent Projects</p>
-          <h2 className="section--heading">Our Portfolio</h2>
+          <h2 className="section--heading">Our Studio Portfolio</h2>
         </div>
         <div>
           <a href="/whitepaper.pdf" download className="whitepaper-link">
@@ -26,7 +26,7 @@ export default function MyPortfolio() {
                   fill="currentColor"
                 />
               </svg>
-              Download Whitepaper
+              Proposed $HBX Blockchain Ecosystem
             </button>
           </a>
         </div>

@@ -139,104 +139,19 @@ function Navbar() {
               to="/portfolio"
               className="navbar--content"
             >
-              Our Portfolio
+              Studio Portfolio
             </Link>
           </li>
 
           <li>
             <a
-              href="/whitepaper.pdf"
+              href="/profile.pdf"
               download
               onClick={closeMenu}
               className="navbar--content whitepaper-link"
             >
-              Download Whitepaper
+              Company Profile
             </a>
-          </li>
-
-          <li>
-            <a
-              href="/giveaway.pdf"
-              download
-              onClick={closeMenu}
-              className="navbar--content whitepaper-link"
-            >
-              Giveaway Info
-            </a>
-          </li>
-
-          <li className="dropdown">
-            <span className="navbar--content dropdown-toggle">Roster ▾</span>
-
-            <ul className="dropdown-menu">
-              <li>
-                <a
-                  href="https://open.spotify.com/artist/1YcGi2JIfTzbotFBDiysfS"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Bryvvn
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://open.spotify.com/artist/4bRaaX0Gni1bOAca0tGduI"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Cookie4l
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://open.spotify.com/artist/5W4k9fFelamN9X3sVxO6Ce"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GORILLA GLUE
-                </a>
-              </li>
-
-              <li>
-                <a
-                  href="https://open.spotify.com/artist/7C4Sna90V9C5gRrtZNh8kZ"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  On Safari
-                </a>
-              </li>
-
-              <li>
-                <a
-                  href="https://open.spotify.com/artist/5itWJQ4OM8zmCx9cKIFFcP"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  OS Breezy
-                </a>
-              </li>
-
-              <li>
-                <a
-                  href="https://open.spotify.com/artist/2Gaxo8kmFvgNJvNmg6ZsGH"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Prince.Wasabi
-                </a>
-              </li>
-
-              <li>
-                <a
-                  href="https://open.spotify.com/artist/7BzZGOottM9jSFRsFOBevb"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  TO BE HIRO
-                </a>
-              </li>
-            </ul>
           </li>
         </ul>
       </div>

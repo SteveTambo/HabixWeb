@@ -3,26 +3,26 @@
     {
       "id": "1",
       "src": "./img/product-chain-1.png",
-      "title": "Web 3 Engineering",
-      "description": "Experienced in the development of web-based blockchain ecosystems combining traditional software engineering aspects with modern web 3 practices"
+      "title": "Process Automation",
+      "description": "Automate supplier payouts, revenue distributions and business workflows through blockchain powered smart contracts"
     },
     {
       "id": "2",
       "src": "./img/tag-1.png",
-      "title": "Market Analytics",
-      "description": "In-depth insights on cryptocurrency market movements backed by data-driven analysis and real-time monitoring of market trends, trading volumes, and price fluctuations"
+      "title": "Cross-border Settlement",
+      "description": "Enable near-instant global payments using stablecoins reducing settlement times and transaction costs"
     },
     {
       "id": "3",
       "src": "./img/feather-pen-2.png",
-      "title": "Brand Growth & Development",
-      "description": "Strategic brand development and growth services to help businesses establish a strong presence in the web 3 space, including brand identity, marketing strategies, and community engagement"
+      "title": "Audit Trails and Compliance",
+      "description": "Create a single, tamper-proof source of truth that enhances transparency, simplifies compliance and eliminates costly reconcilliation"
     },
     {
       "id": "4",
       "src": "./img/feather-pen-1.png",
-      "title": "Artist and Music Management",
-      "description": "Comprehensive management services for artists and musicians in the web 3 ecosystem, including career development, marketing, and leveraging blockchain technology for fan engagement and monetization"
+      "title": "Tokenized Ecosystem",
+      "description": "Strengthen customer engagement and retention through programmable blockchain-based loyalts programs that reward participation and drive ecosystem growth"
     }
   ],
   "skills2": [
@@ -75,7 +75,7 @@
       "id": "2",
       "src": "./img/webimage2.png",
       "title": "Cradle",
-      "description": "A next-generation real estate platform built on the Solana blockchain, designed to bridge the gap between modern property management systems",
+      "description": "A next-generation real estate platform built on the Solana blockchain, designed to bridge the gap between tenants and landlords",
       "link": "https://cradlefrontend.netlify.app"
     },
     {
