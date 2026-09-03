@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": ">=12.x"
+    "node": ">=18.0.0"
   },
   "dependencies": {
     "@solana/web3.js": "^1.98.4",

@@ -3,7 +3,6 @@ import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const FORM_NAME = "airdrop-form";
 const MESSAGE_MAX = 500;
 
 const INITIAL_FORM = {
@@ -87,11 +86,6 @@ const isValidSolanaAddress = (address) =>
 
 const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim());
 
-const encode = (data) =>
-  Object.keys(data)
-    .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
-    .join("&");
-
 export default function ContactMe() {
   const [formData, setFormData] = useState(INITIAL_FORM);
   const [errors, setErrors] = useState({});
@@ -129,6 +123,7 @@ export default function ContactMe() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const botField = e.target.elements["bot-field"]?.value ?? "";
     const found = validate();
     const firstError = Object.keys(found)[0];
     if (firstError) {
@@ -142,14 +137,22 @@ export default function ContactMe() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("/", {
+      const response = await fetch("/api/airdrop", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": FORM_NAME, ...formData }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, "bot-field": botField }),
       });
 
+      const payload = await response.json().catch(() => ({}));
+
       if (!response.ok) {
-        throw new Error(`Server responded with ${response.status}`);
+        /* The function re-validates server-side; surface its field errors. */
+        if (payload.errors) {
+          setErrors(payload.errors);
+          toast.error("Please fix the highlighted fields.");
+          return;
+        }
+        throw new Error(payload.error || `Server responded with ${response.status}`);
       }
 
       toast.success("You're on the list.");
@@ -168,22 +171,6 @@ export default function ContactMe() {
 
   return (
     <section id="Contact" className="contact--section">
-      {/* The hidden static form is what Netlify parses at build time; an SPA's
-          runtime-rendered form is invisible to it. */}
-      <form
-        name={FORM_NAME}
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        hidden
-      >
-        <input type="email" name="email" />
-        <input type="text" name="wallet-address" />
-        <input type="text" name="suburb" />
-        <input type="text" name="mailing-list" />
-        <textarea name="message" />
-        <input type="text" name="bot-field" />
-      </form>
-
       <div className="contact--shell">
         {/* ------------------------------------------------ Left: the pitch */}
         <aside className="contact--aside">
@@ -264,15 +251,12 @@ export default function ContactMe() {
             </div>
           ) : (
             <form
-              name={FORM_NAME}
               method="POST"
-              data-netlify="true"
-              data-netlify-honeypot="bot-field"
+              action="/api/airdrop"
               onSubmit={handleSubmit}
               noValidate
               className="contact--form--container"
             >
-              <input type="hidden" name="form-name" value={FORM_NAME} />
               <p className="contact--honeypot">
                 <label>
                   Leave this field empty
