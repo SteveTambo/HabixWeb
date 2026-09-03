@@ -4,18 +4,19 @@ export default function AboutMain() {
   return (
     <section id="AboutMe" className="about--section">
       <div className="about--section--img">
-        <img src="./img/hbx2.jpeg" alt="About Me" />
+        <img
+          src="/img/hbx2.webp"
+          alt="The Habix team at work"
+          decoding="async"
+          width="1400"
+          height="1436"
+        />
       </div>
       <div className="hero--section--content--box about--section--box">
         <div className="hero--section--content">
           <p className="section--title">About</p>
-          <h1 className="skills-section--heading" style={{ fontSize: "50px" }}>
-            Why Habix?
-          </h1>
-          <p
-            className="hero--section-description"
-            style={{ color: "black", fontSize: "22px" }}
-          >
+          <h1 className="skills--section--heading">Why Habix?</h1>
+          <p className="hero--section-description">
             There is a critical need for a new enterprise paradigm that unifies
             diverse business lines under transparent, community-driven
             governance while maintaining efficiency and competitive advantage.

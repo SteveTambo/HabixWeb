@@ -3,6 +3,9 @@ import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+const FORM_NAME = "airdrop-form";
+const MESSAGE_MAX = 500;
+
 const INITIAL_FORM = {
   email: "",
   "wallet-address": "",
@@ -11,39 +14,128 @@ const INITIAL_FORM = {
   message: "",
 };
 
-// Basic Solana address validation (base58, 32–44 chars)
+const SUBURBS = [
+  "Westlands",
+  "Kilimani",
+  "Kileleshwa",
+  "Lavington",
+  "Parklands",
+  "Upper Hill",
+  "Karen",
+  "Lang'ata",
+  "South B",
+  "South C",
+  "Eastleigh",
+  "Embakasi",
+  "Donholm",
+  "Umoja",
+  "Buruburu",
+  "Komarock",
+  "Kayole",
+  "Ruaka",
+  "Runda",
+  "Muthaiga",
+  "Gigiri",
+  "Spring Valley",
+  "Riverside",
+  "Ngong Road",
+  "Dagoretti",
+  "Ngumo",
+  "Hurlingham",
+  "Madaraka",
+  "Mlolongo",
+  "Syokimau",
+  "Athi River",
+  "Kitengela",
+  "Roysambu",
+  "Kasarani",
+  "Zimmerman",
+  "Kahawa West",
+  "Kahawa Sukari",
+  "Garden Estate",
+  "Thome",
+  "Githurai",
+  "Mirema",
+  "Mountain View",
+  "Kangemi",
+  "Kinoo",
+  "Uthiru",
+  "Riruta",
+  "Jamhuri Estate",
+  "Kawangware",
+  "Other",
+];
+
+const PERKS = [
+  {
+    title: "Early $HBX allocation",
+    body: "Registered wallets are queued first when the WRHSE giveaway goes live.",
+  },
+  {
+    title: "Drop alerts before anyone else",
+    body: "New streetwear releases and limited runs, straight to your inbox.",
+  },
+  {
+    title: "One wallet, one entry",
+    body: "We verify the address format up front so nothing gets lost on the way.",
+  },
+];
+
+/* Basic Solana address validation (base58, 32–44 chars) */
 const isValidSolanaAddress = (address) =>
-  /^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(address);
+  /^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(address.trim());
+
+const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim());
+
+const encode = (data) =>
+  Object.keys(data)
+    .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+    .join("&");
 
 export default function ContactMe() {
   const [formData, setFormData] = useState(INITIAL_FORM);
+  const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    /* Clear the field's error as soon as the visitor starts fixing it. */
+    setErrors((prev) => (prev[name] ? { ...prev, [name]: undefined } : prev));
   };
 
-  const encode = (data) =>
-    Object.keys(data)
-      .map(
-        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]),
-      )
-      .join("&");
+  const validate = () => {
+    const next = {};
+
+    if (!isValidEmail(formData.email)) {
+      next.email = "Enter a valid email address.";
+    }
+    if (!isValidSolanaAddress(formData["wallet-address"])) {
+      next["wallet-address"] =
+        "That doesn't look like a Solana address. Check for a missing character.";
+    }
+    if (!formData.suburb) {
+      next.suburb = "Pick the area you're based in.";
+    }
+    if (!formData["mailing-list"]) {
+      next["mailing-list"] = "Let us know if you'd like the updates.";
+    }
+
+    setErrors(next);
+    return next;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Client-side Solana address check
-    if (!isValidSolanaAddress(formData["wallet-address"])) {
-      toast.error(
-        "❌ Invalid Solana address. Please double-check your wallet.",
-      );
-      return;
-    }
-
-    // Mailing list selection required
-    if (!formData["mailing-list"]) {
-      toast.error("❌ Please select a mailing list preference.");
+    const found = validate();
+    const firstError = Object.keys(found)[0];
+    if (firstError) {
+      toast.error("Please fix the highlighted fields.");
+      document
+        .querySelector(`[name="${firstError}"]`)
+        ?.focus({ preventScroll: false });
       return;
     }
 
@@ -53,200 +145,331 @@ export default function ContactMe() {
       const response = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "airdrop-form", ...formData }),
+        body: encode({ "form-name": FORM_NAME, ...formData }),
       });
 
       if (!response.ok) {
         throw new Error(`Server responded with ${response.status}`);
       }
 
-      toast.success("✅ Successfully registered for the airdrop!");
+      toast.success("You're on the list.");
       setFormData(INITIAL_FORM);
+      setSubmitted(true);
     } catch (error) {
       console.error("Form submission error:", error);
-      toast.error("❌ Submission failed. Please try again.");
+      toast.error("Submission failed. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
   };
 
+  const fieldClass = (name) =>
+    `contact--input${errors[name] ? " has-error" : ""}`;
+
   return (
     <section id="Contact" className="contact--section">
-      <div>
-        <h2>
-          Fill in the details for an early Airdrop opportunity : WRHSE Giveaway
-        </h2>
-      </div>
-
-      {/* The hidden static form is required for Netlify to detect it at build time in SPAs */}
-      <form name="airdrop-form" data-netlify="true" hidden>
+      {/* The hidden static form is what Netlify parses at build time; an SPA's
+          runtime-rendered form is invisible to it. */}
+      <form
+        name={FORM_NAME}
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        hidden
+      >
         <input type="email" name="email" />
         <input type="text" name="wallet-address" />
-        <select name="suburb" />
-        <select name="mailing-list" />
+        <input type="text" name="suburb" />
+        <input type="text" name="mailing-list" />
         <textarea name="message" />
+        <input type="text" name="bot-field" />
       </form>
 
-      <form
-        name="airdrop-form"
-        method="POST"
-        onSubmit={handleSubmit}
-        className="contact--form--container"
-      >
-        <input type="hidden" name="form-name" value="airdrop-form" />
+      <div className="contact--shell">
+        {/* ------------------------------------------------ Left: the pitch */}
+        <aside className="contact--aside">
+          <div className="contact--aside--inner">
+            <p className="contact--eyebrow">WRHSE Giveaway</p>
+            <h1 className="contact--headline">
+              Claim your spot in the <span>early airdrop</span>.
+            </h1>
+            <p className="contact--lede">
+              Drop your wallet below and you'll be in the queue for the first
+              $HBX distribution — plus first sight of every WRHSE release.
+            </p>
 
-        <div className="container">
-          <label className="contact--label">
-            <span className="text-md">Email</span>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="you@example.com"
-              required
-              className="contact--input text-md"
-            />
-          </label>
+            <ul className="contact--perks">
+              {PERKS.map((perk) => (
+                <li key={perk.title}>
+                  <span className="contact--perk--icon" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" fill="none">
+                      <path
+                        d="M4.5 10.5l3.5 3.5 7.5-8"
+                        stroke="currentColor"
+                        strokeWidth="2.2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </span>
+                  <span>
+                    <strong>{perk.title}</strong>
+                    <span className="contact--perk--body">{perk.body}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
 
-          <label className="contact--label">
-            <span className="text-md">Solana Public Address</span>
-            <input
-              type="text"
-              name="wallet-address"
-              value={formData["wallet-address"]}
-              onChange={handleChange}
-              placeholder="e.g. 7xKX..."
-              required
-              className="contact--input text-md"
-            />
-          </label>
-        </div>
-
-        <label className="contact--label">
-          <span className="text-md">Which suburb are you based in?</span>
-          <select
-            name="suburb"
-            value={formData.suburb}
-            onChange={handleChange}
-            required
-            className="contact--input text-md"
-          >
-            <option value="">Select One...</option>
-            <option>Westlands</option>
-            <option>Kilimani</option>
-            <option>Kileleshwa</option>
-            <option>Lavington</option>
-            <option>Parklands</option>
-            <option>Upper Hill</option>
-            <option>Karen</option>
-            <option>Lang'ata</option>
-            <option>South B</option>
-            <option>South C</option>
-            <option>Eastleigh</option>
-            <option>Embakasi</option>
-            <option>Donholm</option>
-            <option>Umoja</option>
-            <option>Buruburu</option>
-            <option>Komarock</option>
-            <option>Kayole</option>
-            <option>Ruaka</option>
-            <option>Runda</option>
-            <option>Muthaiga</option>
-            <option>Gigiri</option>
-            <option>Spring Valley</option>
-            <option>Riverside</option>
-            <option>Ngong Road</option>
-            <option>Dagoretti</option>
-            <option>Ngumo</option>
-            <option>Hurlingham</option>
-            <option>Madaraka</option>
-            <option>Mlolongo</option>
-            <option>Syokimau</option>
-            <option>Athi River</option>
-            <option>Kitengela</option>
-            <option>Roysambu</option>
-            <option>Kasarani</option>
-            <option>Zimmerman</option>
-            <option>Kahawa West</option>
-            <option>Kahawa Sukari</option>
-            <option>Garden Estate</option>
-            <option>Thome</option>
-            <option>Githurai</option>
-            <option>Mirema</option>
-            <option>Mountain View</option>
-            <option>Kangemi</option>
-            <option>Kinoo</option>
-            <option>Uthiru</option>
-            <option>Riruta</option>
-            <option>Jamhuri Estate</option>
-            <option>Kawangware</option>
-            <option>Other</option>
-          </select>
-        </label>
-
-        {/* Mailing list field */}
-        <div className="contact--label mailing--list--field">
-          <span className="text-md mailing--list--title">
-            Include in mailing list?{" "}
-            <span className="required--asterisk" aria-hidden="true">
-              *
-            </span>
-          </span>
-          <p className="mailing--list--description">
-            Stay updated on WRHSE drops, $HBX token news, and new music releases
-            announcements.
-          </p>
-          <div className="mailing--list--options">
-            <label className="radio--label">
-              <input
-                type="radio"
-                name="mailing-list"
-                value="Yes"
-                checked={formData["mailing-list"] === "Yes"}
-                onChange={handleChange}
-                className="radio--input"
-                required
-              />
-              <span className="radio--custom" aria-hidden="true" />
-              <span className="text-md">Yes, keep me in the loop</span>
-            </label>
-            <label className="radio--label">
-              <input
-                type="radio"
-                name="mailing-list"
-                value="No"
-                checked={formData["mailing-list"] === "No"}
-                onChange={handleChange}
-                className="radio--input"
-              />
-              <span className="radio--custom" aria-hidden="true" />
-              <span className="text-md">No thanks</span>
-            </label>
+            <a className="contact--aside--doc" href="/giveaway.pdf" download>
+              Read the giveaway terms
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path
+                  d="M4 10h12M11 5l5 5-5 5"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </a>
           </div>
+        </aside>
+
+        {/* ------------------------------------------------ Right: the form */}
+        <div className="contact--card">
+          {submitted ? (
+            <div className="contact--success" role="status">
+              <span className="contact--success--mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M5 12.5l4.5 4.5L19 7"
+                    stroke="currentColor"
+                    strokeWidth="2.4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+              <h2>You're registered.</h2>
+              <p>
+                We've got your wallet. Watch your inbox — allocation details go
+                out before the drop.
+              </p>
+              <button
+                type="button"
+                className="btn btn-ghost"
+                onClick={() => setSubmitted(false)}
+              >
+                Register another wallet
+              </button>
+            </div>
+          ) : (
+            <form
+              name={FORM_NAME}
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              onSubmit={handleSubmit}
+              noValidate
+              className="contact--form--container"
+            >
+              <input type="hidden" name="form-name" value={FORM_NAME} />
+              <p className="contact--honeypot">
+                <label>
+                  Leave this field empty
+                  <input type="text" name="bot-field" tabIndex={-1} />
+                </label>
+              </p>
+
+              <header className="contact--card--header">
+                <h2>Register your wallet</h2>
+                <p>Takes about a minute. No seed phrase, ever.</p>
+              </header>
+
+              <div className="container">
+                <label className="contact--label">
+                  <span className="contact--label--text">Email</span>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="you@example.com"
+                    autoComplete="email"
+                    aria-invalid={Boolean(errors.email)}
+                    aria-describedby={errors.email ? "err-email" : undefined}
+                    className={fieldClass("email")}
+                  />
+                  {errors.email && (
+                    <span className="contact--error" id="err-email">
+                      {errors.email}
+                    </span>
+                  )}
+                </label>
+
+                <label className="contact--label">
+                  <span className="contact--label--text">
+                    Solana public address
+                  </span>
+                  <input
+                    type="text"
+                    name="wallet-address"
+                    value={formData["wallet-address"]}
+                    onChange={handleChange}
+                    placeholder="7xKX…"
+                    spellCheck="false"
+                    autoComplete="off"
+                    aria-invalid={Boolean(errors["wallet-address"])}
+                    aria-describedby={
+                      errors["wallet-address"] ? "err-wallet" : "hint-wallet"
+                    }
+                    className={`${fieldClass("wallet-address")} contact--mono`}
+                  />
+                  {errors["wallet-address"] ? (
+                    <span className="contact--error" id="err-wallet">
+                      {errors["wallet-address"]}
+                    </span>
+                  ) : (
+                    <span className="contact--hint" id="hint-wallet">
+                      Your public receiving address — never your seed phrase.
+                    </span>
+                  )}
+                </label>
+              </div>
+
+              <label className="contact--label">
+                <span className="contact--label--text">
+                  Which area are you based in?
+                </span>
+                <div className="contact--select--wrap">
+                  <select
+                    name="suburb"
+                    value={formData.suburb}
+                    onChange={handleChange}
+                    aria-invalid={Boolean(errors.suburb)}
+                    aria-describedby={errors.suburb ? "err-suburb" : undefined}
+                    className={fieldClass("suburb")}
+                  >
+                    <option value="">Select one…</option>
+                    {SUBURBS.map((suburb) => (
+                      <option key={suburb} value={suburb}>
+                        {suburb}
+                      </option>
+                    ))}
+                  </select>
+                  <svg
+                    className="contact--select--chevron"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M5 7.5l5 5 5-5"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+                {errors.suburb && (
+                  <span className="contact--error" id="err-suburb">
+                    {errors.suburb}
+                  </span>
+                )}
+              </label>
+
+              <fieldset
+                className={`mailing--list--field${
+                  errors["mailing-list"] ? " has-error" : ""
+                }`}
+              >
+                <legend className="mailing--list--title">
+                  Include me in the mailing list
+                  <span className="required--asterisk" aria-hidden="true">
+                    *
+                  </span>
+                </legend>
+                <p className="mailing--list--description">
+                  WRHSE drops, $HBX token news, and new music releases. Two
+                  emails a month at most.
+                </p>
+
+                <div className="mailing--list--options">
+                  {[
+                    { value: "Yes", label: "Yes, keep me in the loop" },
+                    { value: "No", label: "No thanks" },
+                  ].map((option) => (
+                    <label className="radio--label" key={option.value}>
+                      <input
+                        type="radio"
+                        name="mailing-list"
+                        value={option.value}
+                        checked={formData["mailing-list"] === option.value}
+                        onChange={handleChange}
+                        className="radio--input"
+                      />
+                      <span className="radio--custom" aria-hidden="true" />
+                      <span className="radio--text">{option.label}</span>
+                    </label>
+                  ))}
+                </div>
+
+                {errors["mailing-list"] && (
+                  <span className="contact--error">
+                    {errors["mailing-list"]}
+                  </span>
+                )}
+              </fieldset>
+
+              <label className="contact--label">
+                <span className="contact--label--text">
+                  Anything else?
+                  <span className="contact--optional">Optional</span>
+                </span>
+                <textarea
+                  name="message"
+                  rows="4"
+                  maxLength={MESSAGE_MAX}
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Tell us how you found us, or what you'd like to see next."
+                  className="contact--input"
+                />
+                <span className="contact--counter">
+                  {formData.message.length}/{MESSAGE_MAX}
+                </span>
+              </label>
+
+              <button
+                type="submit"
+                className="btn btn-primary contact--submit"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  <>
+                    <span className="contact--spinner" aria-hidden="true" />
+                    Submitting…
+                  </>
+                ) : (
+                  "Join the airdrop"
+                )}
+              </button>
+
+              <p className="contact--fineprint">
+                We only use your address to send the drop. No spam, unsubscribe
+                any time.
+              </p>
+            </form>
+          )}
         </div>
+      </div>
 
-        <label className="contact--label">
-          <span className="text-md">Any other notes?</span>
-          <textarea
-            name="message"
-            rows="6"
-            value={formData.message}
-            onChange={handleChange}
-            className="contact--input text-md"
-          />
-        </label>
-
-        <button
-          type="submit"
-          className="btn btn-outline-primary"
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? "Submitting..." : "Submit"}
-        </button>
-      </form>
-
-      <ToastContainer position="top-right" autoClose={3000} />
+      <ToastContainer
+        position="bottom-right"
+        autoClose={4000}
+        newestOnTop
+        theme="dark"
+      />
     </section>
   );
 }

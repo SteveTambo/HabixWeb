@@ -4,12 +4,19 @@ export default function AboutMe() {
   return (
     <section id="AboutMe" className="about--section">
       <div className="about--section--img">
-        <img src="./img/hbx2.jpeg" alt="About Me" />
+        <img
+          src="/img/hbx2.webp"
+          alt="The Habix team at work"
+          loading="lazy"
+          decoding="async"
+          width="1400"
+          height="1436"
+        />
       </div>
       <div className="hero--section--content--box about--section--box">
         <div className="hero--section--content">
           <p className="section--title">About Us</p>
-          <h1 className="skills-section--heading">Who We Are</h1>
+          <h2 className="skills--section--heading">Who We Are</h2>
           <p className="hero--section-description">
             The future belongs to organizations built collaboratively,
             transparently, and sustainably—where governance is shared and value
@@ -17,7 +24,7 @@ export default function AboutMe() {
             By combining the stability of traditional structures with the
             innovation of Web3, Habix is building a tokenized ecosystem that
             rewards participation, aligns incentives, and enables business
-            growth to advance alongside community prosperity
+            growth to advance alongside community prosperity.
           </p>
         </div>
       </div>

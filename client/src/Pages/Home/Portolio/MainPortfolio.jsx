@@ -1,61 +1,22 @@
 import data from "../../../data/index.json";
-import "./mainportfolio.css";
+import PortfolioGrid from "./PortfolioGrid";
+import "./portfolio.css";
 
 export default function MainPortfolio() {
-  const settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 5,
-    slidesToScroll: 5,
-  };
   return (
     <section className="portfolio--section" id="MyPortfolio">
       <div className="portfolio--container-box">
         <div className="portfolio--container">
           <p className="sub--title">Recent Projects</p>
-          <h2 className="section--heading">Our Studio Portfolio</h2>
+          <h1 className="section--heading">Our Studio Portfolio</h1>
+          <p className="text-lg">
+            Platforms we build, run, and prove in production before the
+            frameworks behind them go to client organizations.
+          </p>
         </div>
       </div>
 
-      <div className="portfolio--section--container">
-        {data?.portfolio?.map((item, index) => (
-          <div key={index} className="portfolio--section--card">
-            <div className="portfolio--section--img">
-              <img src={item.src} alt="Placeholder" />
-            </div>
-            <div className="portfolio--section--card--content">
-              <div>
-                <h3 className="portfolio--section--title">{item.title}</h3>
-                <p className="text-md">{item.description}</p>
-              </div>
-              <a
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm portfolio--link"
-              >
-                {item.link}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 20 19"
-                  fill="none"
-                >
-                  <path
-                    d="M4.66667 1.66675H18V15.0001M18 1.66675L2 17.6667L18 1.66675Z"
-                    stroke="currentColor"
-                    strokeWidth="2.66667"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </a>
-            </div>
-          </div>
-        ))}
-      </div>
+      <PortfolioGrid items={data?.portfolio} />
     </section>
   );
 }
