@@ -43,9 +43,9 @@
     {
       "id": "3",
       "src": "/img/webimage3.webp",
-      "title": "Breeder",
-      "description": "Specialized dog-breeding initiatives leveraging blockchain technology to create a transparent and secure ecosystem for breeders, buyers, and dog enthusiasts",
-      "link": "https://cradlebreeder.netlify.app"
+      "title": "IVANA",
+      "description": "A Stripe-like payment infrastructure built for the Solana blockchain, enabling fast and secure USDC transactions for merchants and platforms",
+      "link": "https://ivanabeta.habixgroup.top"
     }
   ]
 }
