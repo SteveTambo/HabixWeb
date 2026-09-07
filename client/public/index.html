@@ -47,6 +47,37 @@
       content="https://www.habixgroup.top/img/hbxlogo.png"
     />
 
+    <!-- Structured data: lets Google understand the brand/site as entities
+         (knowledge panel, sitelinks search box eligibility) rather than
+         guessing from page copy. Site-wide, so it lives here rather than
+         per-route. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://www.habixgroup.top/#organization",
+            "name": "Habix Technologies",
+            "url": "https://www.habixgroup.top/",
+            "logo": "https://www.habixgroup.top/img/hbxlogo.png",
+            "description": "Habix Technologies is a venture studio building blockchain transformation frameworks — process automation, cross-border settlement, audit trails and tokenized ecosystems on Solana.",
+            "sameAs": [
+              "https://www.instagram.com/habixgroup",
+              "https://www.linkedin.com/company/habixgroup"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://www.habixgroup.top/#website",
+            "name": "Habix Technologies",
+            "url": "https://www.habixgroup.top/",
+            "publisher": { "@id": "https://www.habixgroup.top/#organization" }
+          }
+        ]
+      }
+    </script>
+
     <!-- Fonts: one display face, one text face. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

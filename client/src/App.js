@@ -36,7 +36,7 @@ function NotFound() {
       <Seo
         title="Page Not Found | Habix Technologies"
         description="The page you're looking for doesn't exist. Head back to the Habix Technologies homepage."
-        path="/404"
+        noindex
       />
       <p className="section--title">404</p>
       <h1>This page hasn't been built yet.</h1>
