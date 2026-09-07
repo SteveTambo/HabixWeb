@@ -2,6 +2,7 @@ import "./contact.css";
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Seo from "../../../components/Seo";
 
 const MESSAGE_MAX = 500;
 
@@ -171,6 +172,11 @@ export default function ContactMe() {
 
   return (
     <section id="Contact" className="contact--section">
+      <Seo
+        title="Join the WRHSE Airdrop | Habix Technologies"
+        description="Register your wallet to join the early $HBX airdrop queue and get first sight of every WRHSE release."
+        path="/contact"
+      />
       <div className="contact--shell">
         {/* ------------------------------------------------ Left: the pitch */}
         <aside className="contact--aside">

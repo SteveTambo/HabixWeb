@@ -11,6 +11,7 @@ import {
 import Navbar from "./Pages/Home/Navbar/Navbar";
 import Home from "./Pages/Home/Homescreen";
 import Footer from "./Pages/Home/Footer/Footer";
+import Seo from "./components/Seo";
 
 /* Split the secondary routes out of the initial bundle — /contact alone pulls
    in react-toastify, which the landing page never needs. */
@@ -32,6 +33,11 @@ function ScrollToTop() {
 function NotFound() {
   return (
     <section className="notfound--section">
+      <Seo
+        title="Page Not Found | Habix Technologies"
+        description="The page you're looking for doesn't exist. Head back to the Habix Technologies homepage."
+        path="/404"
+      />
       <p className="section--title">404</p>
       <h1>This page hasn't been built yet.</h1>
       <p className="text-lg">

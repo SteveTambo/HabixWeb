@@ -1,8 +1,14 @@
+import Seo from "../../../components/Seo";
 import "./about.css";
 
 export default function AboutMain() {
   return (
     <section id="AboutMe" className="about--section">
+      <Seo
+        title="Why Habix? | Habix Technologies"
+        description="Habix builds a community-aligned, tokenized enterprise framework on Solana that unifies lifestyle retail, entertainment, and profit and non-profit initiatives into one interoperable ecosystem."
+        path="/about"
+      />
       <div className="about--section--img">
         <img
           src="/img/hbx2.webp"
